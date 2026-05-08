@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baggi Rishika — Resume</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #0f1923;
+      --accent: #1a4a6e;
+      --accent-light: #e8f2fa;
+      --accent-mid: #3a7cb8;
+      --soft: #f5f7fa;
+      --muted: #6b7a8d;
+      --border: #d4dce8;
+      --tag-bg: #e4eef7;
+      --tag-text: #1a4a6e;
+      --green: #1d6b4a;
+      --green-bg: #e4f4ed;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: var(--ink);
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+    }
+
+    /* ── Header ── */
+    .header {
+      background: white;
+      color: #1a1a1a;
+      padding: 2.4rem 2.8rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      border-bottom: 1px solid #080808;
+    }
+
+    .header-left h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header-left .role {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #666666;
+      margin: 8px 0 10px;
+    }
+
+    .header-left .tagline {
+      font-size: 13px;
+      color: #666666;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 440px;
+    }
+
+    .header-right {
+      text-align: right;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 7px;
+      font-size: 12.5px;
+      color: #666666;
+    }
+
+    .contact-item a {
+      color: #1a4a6e;
+      text-decoration: none;
+    }
+
+    .contact-item svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    /* ── Body grid ── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+    }
+
+    .main {
+      padding: 2rem 2.4rem 2.4rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .side {
+      padding: 2rem 1.8rem 2.4rem;
+      background: var(--soft);
+    }
+
+    /* ── Section heading ── */
+    .sec-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    section {
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── Experience ── */
+    .exp-item {
+      margin-bottom: 1.2rem;
+      padding-left: 14px;
+      border-left: 2px solid var(--accent-mid);
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .exp-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .exp-company {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .badge {
+      font-size: 10.5px;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      font-size: 12.5px;
+      color: #3d4f60;
+      margin-top: 7px;
+      line-height: 1.65;
+    }
+
+    .exp-desc li {
+      margin-left: 14px;
+      margin-bottom: 3px;
+    }
+
+    /* ── Projects ── */
+    .project-card {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent-mid);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .project-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .proj-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+    }
+
+    .proj-link {
+      font-size: 10.5px;
+      color: var(--accent-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .proj-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 7px 0;
+    }
+
+    .tech-tag {
+      font-size: 10.5px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .proj-desc {
+      font-size: 12.5px;
+      color: #3d4f60;
+      line-height: 1.65;
+    }
+
+    .proj-desc li {
+      margin-left: 14px;
+      margin-bottom: 3px;
+    }
+
+    .highlight {
+      display: inline-block;
+      background: var(--green-bg);
+      color: var(--green);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 3px;
+      margin-top: 6px;
+    }
+
+    /* ── Side panel ── */
+    .side section {
+      margin-bottom: 1.6rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-chip {
+      font-size: 11.5px;
+      background: white;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 4px 11px;
+      border-radius: 3px;
+      font-weight: 400;
+    }
+
+    .edu-block {
+      border-left: 2px solid var(--accent-mid);
+      padding-left: 12px;
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .edu-school {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .edu-year {
+      font-size: 11px;
+      color: var(--accent-mid);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    .activity-list {
+      list-style: none;
+    }
+
+    .activity-list li {
+      font-size: 12px;
+      color: #3d4f60;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .activity-list li:last-child {
+      border-bottom: none;
+    }
+
+    .activity-list li::before {
+      content: '◆';
+      font-size: 6px;
+      color: var(--accent-mid);
+      flex-shrink: 0;
+    }
+
+    .cert-item {
+      padding: 9px 11px;
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-mid);
+      margin-bottom: 8px;
+    }
+
+    .cert-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .cert-issuer {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ── -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Baggi Rishika</h1>
+        <div class="role">AI  Full-Stack Developer </div>
+        <p class="tagline"> Computer Engineering student with hands-on AI-driven web
+          development, seeking to build intelligent, scalable digital solutions.</p>
+      </div>
+      <div class="header-right">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,12 2,6" />
+          </svg>
+          rishikabaggi@gmail.com
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.96a16 16 0 006.13 6.13l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          +91 8688572440
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          <a href="https://www.linkedin.com/in/rishi3154">linkedin.com/in/rishi3154</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+          </svg>
+          <a href="https://github.com/rishikabaggi-hue">github.com/rishikabaggi-hue</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BODY ── -->
+    <div class="body">
+
+      <!-- LEFT: Main Content -->
+      <div class="main">
+
+        <!-- Work Experience -->
+        <section>
+          <div class="sec-title">Work Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div>
+                <div class="exp-role">Frontend Developer Intern</div>
+                <div class="exp-company">AI-Driven Web Applications</div>
+              </div>
+              <span class="badge">2024</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Designed and developed AI-integrated web applications with responsive, user-centric interfaces using
+                React.js.</li>
+              <li>Implemented backend optimizations and API integrations that improved overall system efficiency and
+                performance by <strong>25%</strong>.</li>
+              <li>Collaborated cross-functionally to deliver features on schedule within an agile development workflow.
+              </li>
+            </ul>
+          </div>
+
+         
+        </section>
+
+        <!-- Projects -->
+        <section>
+          <div class="sec-title">Projects</div>
+
+          <div class="project-card">
+            <div class="proj-header">
+              <div class="proj-name">Autonomous JARVIS Legion — Multi-Agent System</div>
+              <a href="https://github.com/rishikabaggi-hue/sravani" class="proj-link">↗
+                github.com/rishikabaggi-hue/sravani</a>
+            </div>
+            <div class="proj-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Vision AI</span>
+              <span class="tech-tag">Swarm Intelligence</span>
+              <span class="tech-tag">LLMs</span>
+              <span class="tech-tag">PyAutoGUI</span>
+            </div>
+            <ul class="proj-desc">
+              <li>Engineered a scalable multi-agent system capable of parallel task execution and distributed web
+                scraping using specialized bot archetypes.</li>
+              <li>Developed a central JARVIS core that utilizes screen vision and intelligent decision-making for fully
+                autonomous GUI control and system interaction.</li>
+              <li>Implemented a modular orchestration layer with a 'Commander' for mission objectives and a 'Factory'
+                for dynamic agent scaling and lifecycle management.</li>
+              <li>Optimized swarm coordination and shared memory pools, enabling efficient execution of complex,
+                multi-step automated workflows.</li>
+            </ul>
+            <span class="highlight">⬡ Multi-Agent Orchestration · Computer Vision · Automation</span>
+          </div>
+
+          <div class="project-card">
+            <div class="proj-header">
+              <div class="proj-name">CircL — Real-Time Chat Platform</div>
+            </div>
+            <div class="proj-tech">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">Socket.IO</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+            <ul class="proj-desc">
+              <li>Built a public and private real-time chat platform with React, Node.js, Express, Socket.IO, MongoDB,
+                JWT auth, and role-based access control.</li>
+              <li>Implemented secure registration and login flows with bcrypt password hashing, protected routes, and
+                token-based session handling.</li>
+              <li>Developed topic-based public rooms with real-time group messaging, room search and filtering,
+                temporary room expiry, and anonymous participation.</li>
+              <li>Enabled private messaging through accepted chat requests, adding safer direct conversations and
+                anti-spam controls across the platform.</li>
+              <li>Shipped role-based controls for admin, moderator, member, and observer workflows, covering muting,
+                pinning, joining, blocking, and room management.</li>
+            </ul>
+            <span class="highlight">⬡ Full-Stack · Real-Time · Security</span>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT: Side Panel -->
+      <div class="side">
+
+        <!-- Education -->
+        <section>
+          <div class="sec-title">Education</div>
+          <div class="edu-block">
+            <div class="edu-degree">B.Tech — Computer Engineering</div>
+            <div class="edu-school">Malla Reddy College of Engineering</div>
+            <div class="edu-year">2023 – 2027 (Expected)</div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <div class="sec-title">Technical Skills</div>
+          <div class="skill-list">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">React.js</span>
+            <span class="skill-chip">Next.js</span>
+            <span class="skill-chip">HTML / CSS</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">Flask</span>
+            <span class="skill-chip">Firebase</span>
+            <span class="skill-chip">Gemini API</span>
+            <span class="skill-chip">REST APIs</span>
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">AI / ML</span>
+            <span class="skill-chip">Git & GitHub</span>
+            <span class="skill-chip">Automation</span>
+            <span class="skill-chip">Pandas</span>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+          <div class="sec-title">Certifications</div>
+
+          <div class="cert-item">
+            <div class="cert-name">AI Foundations Certificate</div>
+            <div class="cert-issuer">NASSCOM / Coursera · 2024</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Python Programming Workshop</div>
+            <div class="cert-issuer">Malla Reddy College · 2023</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">React — Front End Development</div>
+            <div class="cert-issuer">Meta / Coursera</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Machine Learning Specialization</div>
+            <div class="cert-issuer">DeepLearning.AI / Coursera</div>
+          </div>
+        </section>
+
+        <!-- Activities -->
+        <section>
+          <div class="sec-title">Activities &amp; Involvement</div>
+          <ul class="activity-list">
+            <li>Student Coordinator — NSS</li>
+            <li>Participant — Python Programming Workshop</li>
+            <li>AI Foundation Certified Scholar</li>
+            <li>Open Source Contributor (GitHub)</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
